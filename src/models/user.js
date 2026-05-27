@@ -16,4 +16,4 @@ const User = sequelize.define('User', {
     }
 });
 
-module.exports = User;ss
+module.exports = User;
