@@ -1,16 +1,17 @@
-const { Sequelize } = require('sequelize');
- require("dotenv").config();
+const { Sequelize } = require('sequelize'); // chama o sequelize
 
- const sequelize = new Sequelize(
- process.env.DB_NAME,
- process.env.DB_USE,
-process.env.DB_PASSWORD,
-{
-    host:process.env.DB_HOST,
-    port:process.env.DB_PORT,
-    dialect: process.env.DB_DIALECT || 'mysql',
-    logging: false
-}
-);
+require('dotenv').config(); // chama o dotenv
 
-module.exports = sequelize;
+const sequelize = new Sequelize( // cria a conexão com o banco de dados
+    process.env.DB_NAME, // nome do banco de dados
+    process.env.DB_USER, // usuário do banco de dados
+    process.env.DB_PASSWORD, // senha do banco de dados
+    {
+        host: process.env.DB_HOST, // host do banco de dados
+        port: process.env.DB_PORT, // porta do banco de dados
+        dialect:process.env.DB_DIALECT || 'mysql', // tipo de banco de dados
+        logging: false // desativa o login do sequelize
+    }
+); // fecha a conexão
+
+module.exports = sequelize; // exporta a conexão
